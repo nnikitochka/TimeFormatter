@@ -5,6 +5,10 @@ plugins {
 group = "nn.edition.utils.timeformat"
 version = "1.0"
 
+repositories {
+    mavenCentral()
+}
+
 kotlin {
     jvmToolchain(21)
 }
