@@ -1,4 +1,4 @@
-package nn.edition.utils.timeformat
+package nn.edition.utils.format.time
 
 data class TimeFormat(
     /**

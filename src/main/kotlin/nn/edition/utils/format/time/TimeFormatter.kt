@@ -1,4 +1,4 @@
-package nn.edition.utils.timeformat
+package nn.edition.utils.format.time
 
 object TimeFormatter {
     /**
@@ -46,8 +46,8 @@ object TimeFormatter {
         if (months > 0) append("$months ${getPluralForm(months, monthFormat)} ")
         if (days > 0) append("$days ${getPluralForm(days, dayFormat)} ")
         if (hours > 0) append("$hours ${getPluralForm(hours, hourFormat)} ")
-        if (minutes > 0) append("$minutes ${getPluralForm(minutes, minuteFormat)} ")
-        if (seconds >= 0) append("$seconds ${getPluralForm(seconds, secondFormat)}")
+        if (minutes > 0) append("$minutes ${getPluralForm(minutes, minuteFormat)}")
+        if (seconds > 0) append(" $seconds ${getPluralForm(seconds, secondFormat)}")
     }.toString()
 
     /**
