@@ -94,5 +94,4 @@ object Main {
 ---
 
 ## TODO:
-- [ ] Сохранение логов в файл
-- [ ] Придумать описание для LoggerFactory#terminalWriter
+- [ ] Форматирование дат
