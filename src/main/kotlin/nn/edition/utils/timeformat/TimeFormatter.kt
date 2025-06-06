@@ -1,6 +1,11 @@
 package nn.edition.utils.timeformat
 
 object TimeFormatter {
+    /**
+     * Форматы времени по умолчанию, использующиеся методами класса.
+     *
+     * При надобности могут быть изменены.
+     */
     var yearFormat = TimeFormat.yearFormat
     var monthFormat = TimeFormat.monthFormat
     var weekFormat = TimeFormat.weekFormat
