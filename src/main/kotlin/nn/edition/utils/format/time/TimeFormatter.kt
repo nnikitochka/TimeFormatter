@@ -3,7 +3,6 @@ package nn.edition.utils.format.time
 object TimeFormatter {
     /**
      * Форматы времени по умолчанию, использующиеся методами класса.
-     *
      * При надобности могут быть изменены.
      */
     var yearFormat = TimeFormat.yearFormat
@@ -19,10 +18,9 @@ object TimeFormatter {
     fun format(time: Int) = format(time.toLong())
 
     /**
-     * Принимает:
      * @param time - время в секундах
      *
-     * Возвращает отформатированное время в [String]
+     * @return String, содержащею отформатированное время
      */
     fun format(time: Long) = StringBuilder().apply {
         var remainingTime = time
@@ -51,87 +49,79 @@ object TimeFormatter {
     }.toString()
 
     /**
-     * Принимает:
      * @param time - время в секундах
      * @param format - формат секунд.
      *
-     * Возвращает отформатированное время в секундах.
+     * @return отформатированное время в секундах.
      */
     fun formatSeconds(time: Long, format: TimeFormat = secondFormat) =
         "$time ${getPluralForm(time, format)}"
 
     /**
-     * Принимает:
      * @param time - время в секундах
      * @param format - формат минут.
      *
-     * Возвращает отформатированное время в минутах.
+     * @return отформатированное время в минутах.
      */
     fun formatMinutes(time: Long, format: TimeFormat = minuteFormat) = (time / 60).let { minutes ->
         "$minutes ${getPluralForm(minutes, format)}"
     }
 
     /**
-     * Принимает:
      * @param time - время в секундах
      * @param format - формат часов.
      *
-     * Возвращает отформатированное время в часах.
+     * @return отформатированное время в часах.
      */
     fun formatHours(time: Long, format: TimeFormat = hourFormat) = (time / (60 * 60)).let { hours ->
         "$hours ${getPluralForm(hours, format)}"
     }
 
     /**
-     * Принимает:
      * @param time - время в секундах
      * @param format - формат дней.
      *
-     * Возвращает отформатированное время в днях.
+     * @return отформатированное время в днях.
      */
     fun formatDays(time: Long, format: TimeFormat = dayFormat) = (time / (24 * 60 * 60)).let { days ->
         "$days ${getPluralForm(days, format)}"
     }
 
     /**
-     * Принимает:
      * @param time - время в секундах
      * @param format - формат недель.
      *
-     * Возвращает отформатированное время в неделях.
+     * @return отформатированное время в неделях.
      */
     fun formatWeeks(time: Long, format: TimeFormat = weekFormat) = (time / (7 * 24 * 60 * 60)).let { weeks ->
         "$weeks ${getPluralForm(weeks, format)}"
     }
 
     /**
-     * Принимает:
      * @param time - время в секундах
      * @param format - формат месяцев.
      *
-     * Возвращает отформатированное время в месяцах.
+     * @return отформатированное время в месяцах.
      */
     fun formatMonths(time: Long, format: TimeFormat = monthFormat) = (time / (30 * 24 * 60 * 60)).let { months ->
         "$months ${getPluralForm(months, format)}"
     }
 
     /**
-     * Принимает:
      * @param time - время в секундах
      * @param format - формат лет.
      *
-     * Возвращает отформатированное время в годах.
+     * @return отформатированное время в годах.
      */
     fun formatYears(time: Long, format: TimeFormat = yearFormat) = (time / (365 * 24 * 60 * 60)).let { years ->
         "$years ${getPluralForm(years, format)}"
     }
 
     /**
-     * Принимает:
      * @param number - число для которого нужно получить форму.
      * @param format - объект [TimeFormat] с нужными форматами.
      *
-     * Возвращает формат со склонения в String.
+     * @return формат со склонения в String.
      */
     fun getPluralForm(number: Long, format: TimeFormat): String {
         val n = number % 100
