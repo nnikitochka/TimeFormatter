@@ -1,32 +1,36 @@
 package nn.edition.utils.format.time
 
+/**
+ * Класс для представления форматов времени с поддержкой русской грамматики.
+ *
+ * Класс предоставляет формы единиц времени в соответствии с правилами
+ * русского языка для правильного склонения числительных с единицами времени.
+ *
+ * @property first Форма единицы времени для числительных, оканчивающихся на 1 (кроме 11)
+ *                       Например: "1 год", "21 день", "31 секунда"
+ * @property second Форма единицы времени для числительных, оканчивающихся на 2, 3, 4 (кроме 12, 13, 14)
+ *                        Например: "2 года", "23 дня", "34 секунды"
+ * @property third Форма единицы времени для всех остальных случаев (0, 5-20, и числительных, оканчивающихся на 5-9, 0)
+ *                       Например: "5 лет", "10 дней", "27 секунд"
+ * @property short Краткая форма единицы времени
+ *                 Например: "л.", "д.", "сек."
+ */
 data class TimeFormat(
-    /**
-     * Первая форма времени.
-     * Пример: 1 год, 1 месяц.
-     */
-    val firstFormat: String,
-    /**
-     * Вторая форма времени.
-     * Пример: 2 года, 2 месяца.
-     */
-    val secondFormat: String,
-    /**
-     * Третья форма времени.
-     * Пример: 10 лет, 10 месяцев.
-     */
-    val thirdFormat: String,
+    val first: String,
+    val second: String,
+    val third: String,
+    val short: String,
 ) {
-    /**
-     * Форматы времени по умолчанию.
-     */
     companion object {
-        val yearFormat = TimeFormat("год", "года", "лет")
-        val monthFormat = TimeFormat("месяц", "месяца", "месяцев")
-        val weekFormat = TimeFormat("неделя", "недели", "недель")
-        val dayFormat = TimeFormat("день", "дня", "дней")
-        val hourFormat = TimeFormat("час", "часа", "часов")
-        val minuteFormat = TimeFormat("минута", "минуты", "минут")
-        val secondFormat = TimeFormat("секунда", "секунды", "секунд")
+        /**
+         * Форматы времени по умолчанию.
+         */
+        val yearFormat = TimeFormat("год", "года", "лет", "л.")
+        val monthFormat = TimeFormat("месяц", "месяца", "месяцев", "мес.")
+        val weekFormat = TimeFormat("неделя", "недели", "недель", "нед.")
+        val dayFormat = TimeFormat("день", "дня", "дней", "д.")
+        val hourFormat = TimeFormat("час", "часа", "часов", "ч.")
+        val minuteFormat = TimeFormat("минута", "минуты", "минут", "мин.")
+        val secondFormat = TimeFormat("секунда", "секунды", "секунд", "сек.")
     }
 }
